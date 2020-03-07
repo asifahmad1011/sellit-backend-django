@@ -41,7 +41,17 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'category.apps.CategoryConfig',
     'brands.apps.BrandsConfig',
+    'exduser.apps.ExduserConfig',
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
