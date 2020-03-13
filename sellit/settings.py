@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'products.apps.ProductsConfig',
     'category.apps.CategoryConfig',
     'brands.apps.BrandsConfig',
+    'users.apps.UsersConfig',
+    'studentarchives.apps.StudentarchivesConfig'
 ]
 
 MIDDLEWARE = [
@@ -106,6 +108,14 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 
 
 # Internationalization

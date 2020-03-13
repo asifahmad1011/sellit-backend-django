@@ -2,9 +2,8 @@ from django.shortcuts import render
 from rest_framework import generics
 from products.models import Products
 from products.serializers import ProductsSerializer
-
-
-# Create your views here.
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 class ProductsList(generics.ListCreateAPIView):
@@ -13,11 +12,15 @@ class ProductsList(generics.ListCreateAPIView):
 
 
 class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
 
 
 class ProductsBySeller(generics.ListAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     serializer_class = ProductsSerializer
 
     # lookup_url_kwarg = "seller_id"
