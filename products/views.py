@@ -11,6 +11,12 @@ class ProductsList(generics.ListCreateAPIView):
     serializer_class = ProductsSerializer
 
 
+class ProductsList11(generics.CreateAPIView):
+    model = Products
+    queryset = Products.objects.all()
+    serializer_class = ProductsSerializer
+
+
 class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]

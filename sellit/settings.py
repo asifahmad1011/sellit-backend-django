@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'brands.apps.BrandsConfig',
     'users.apps.UsersConfig',
-    'studentarchives.apps.StudentarchivesConfig'
+    'studentarchives.apps.StudentarchivesConfig',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [

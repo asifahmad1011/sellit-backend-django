@@ -20,6 +20,7 @@ class Attributes(models.Model):
         db_table = 'attributes'
 
 
+# ----- Done
 class Brands(models.Model):
     brand_id = models.AutoField(primary_key=True)
     category = models.ForeignKey('Category', models.DO_NOTHING, blank=True, null=True)
@@ -209,7 +210,8 @@ class SheUsers(models.Model):
     created_date = models.DateTimeField()
     modified_date = models.DateTimeField()
     location = models.IntegerField()
-    cat_preference = models.ForeignKey(Category, models.DO_NOTHING, db_column='cat_Preference')  # Field name made lowercase.
+    cat_preference = models.ForeignKey(Category, models.DO_NOTHING,
+                                       db_column='cat_Preference')  # Field name made lowercase.
 
     class Meta:
         managed = False
@@ -218,13 +220,15 @@ class SheUsers(models.Model):
 
 class SheWishlist(models.Model):
     postid = models.IntegerField(db_column='PostId')  # Field name made lowercase.
-    matrikel_number = models.CharField(db_column='Matrikel_number', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    matrikel_number = models.CharField(db_column='Matrikel_number', max_length=45, blank=True,
+                                       null=True)  # Field name made lowercase.
 
     class Meta:
         managed = False
         db_table = 'she_wishlist'
 
 
+#    --------------Done
 class StudentArchives(models.Model):
     id = models.CharField(max_length=45)
     matrikel_number = models.IntegerField(primary_key=True)

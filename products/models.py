@@ -6,6 +6,7 @@ from category.models import Category
 
 
 class Products(models.Model):
+    product_id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=45)
     slug = models.CharField(max_length=20, blank=True, null=True)
     description = models.TextField()
