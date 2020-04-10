@@ -8,12 +8,23 @@ from images.models import Images
 
 
 class ProductsSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Products
+        fields = ['product_id', 'name', 'description', 'price', 'seller_id', 'more_details', 'status',
+                  'category', 'brand', 'product_condition', 'created_date', 'modified_date']
+
+
+class ProductsViewSerializer(serializers.ModelSerializer):
     images = ImageSerializer(many=True)
 
     class Meta:
         model = Products
         fields = ['product_id', 'name', 'description', 'price', 'seller_id', 'more_details', 'status',
                   'category', 'brand', 'product_condition', 'created_date', 'modified_date', 'images']
+
+
+
 
     # def create(self, validated_data):
     #     images_data = validated_data.pop('images')
