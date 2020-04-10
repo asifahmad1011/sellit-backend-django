@@ -16,7 +16,7 @@ class Images(models.Model):
     modified_date = models.DateTimeField(auto_now=True)
 
     class Meta:
-        unique_together = ['product', 'image_id']
+        # unique_together = ['product', 'image_id']
         ordering = ['image_id']
 
         def __str__(self):

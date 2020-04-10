@@ -19,4 +19,5 @@ class Products(models.Model):
     product_condition = models.IntegerField()
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
+    # images = models.ManyToManyField(Images)
 

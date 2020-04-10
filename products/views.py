@@ -1,9 +1,13 @@
+import itertools
+
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, status
 from products.models import Products
 from products.serializers import ProductsSerializer
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from images.serializers import ImageSerializer
 
 
 class ProductsList(generics.ListCreateAPIView):
@@ -11,15 +15,9 @@ class ProductsList(generics.ListCreateAPIView):
     serializer_class = ProductsSerializer
 
 
-class ProductsList11(generics.CreateAPIView):
-    model = Products
-    queryset = Products.objects.all()
-    serializer_class = ProductsSerializer
-
-
 class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
 
