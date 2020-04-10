@@ -5,14 +5,22 @@ from rest_framework import generics, status
 from products.models import Products
 from products.serializers import ProductsSerializer, ProductsViewSerializer
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from images.serializers import ImageSerializer
 
 
+class StandardResultsSetPagination(PageNumberPagination):
+    page_size = 20
+    page_size_query_param = 'page_size'
+    max_page_size = 100
+
+
 class ProductsList(generics.ListCreateAPIView):
     queryset = Products.objects.all()
     serializer_class = ProductsViewSerializer
+    pagination_class = StandardResultsSetPagination
 
     def post(self, request, *args, **kwargs):
         image_data = request.data["images"]
@@ -36,16 +44,16 @@ class ProductsList(generics.ListCreateAPIView):
 
 
 class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
-    # authentication_classes = [SessionAuthentication, BasicAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
-    serializer_class = ProductsSerializer
+    serializer_class = ProductsViewSerializer
 
 
 class ProductsBySeller(generics.ListAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
-    serializer_class = ProductsSerializer
+    serializer_class = ProductsViewSerializer
 
     # lookup_url_kwarg = "seller_id"
 
@@ -54,3 +62,5 @@ class ProductsBySeller(generics.ListAPIView):
         seller_id = self.kwargs['seller_id']
         queryset = Products.objects.filter(seller_id=seller_id)
         return queryset
+
+

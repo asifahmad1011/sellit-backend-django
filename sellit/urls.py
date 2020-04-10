@@ -25,4 +25,7 @@ urlpatterns = [
     path('', include('studentarchives.urls')),
     path('', include('images.urls')),
 ]
+urlpatterns += [
+    path('api-auth/', include('rest_framework.urls')),
+]
 
