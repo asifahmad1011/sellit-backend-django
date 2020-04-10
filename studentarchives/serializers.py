@@ -6,5 +6,5 @@ from studentarchives.models import StudentArchives
 class StudentArchivesSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudentArchives
-        fields = ['matrikel_number', 'first_name', 'last_name', 'dob', 'email', 'address', 'phone_number',
-                  'postal_code', 'created_date', 'modified_date']
+        fields = '__all__'
+        read_only_fields = ('created_date', 'modified_date')
