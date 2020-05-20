@@ -5,12 +5,13 @@ from images.serializers import ImageSerializer
 
 
 # Create your views here.
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 
 class ImageList(generics.ListCreateAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
+    # authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = Images.objects.all()
     serializer_class = ImageSerializer

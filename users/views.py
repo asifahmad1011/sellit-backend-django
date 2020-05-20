@@ -15,7 +15,7 @@ class UsersList(generics.ListCreateAPIView):
 
 
 class UsersDetail(generics.RetrieveUpdateDestroyAPIView):
-    # authentication_classes = [SessionAuthentication, BasicAuthentication]
-    # permission_classes = [IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
     serializer_class = UserSerializer
