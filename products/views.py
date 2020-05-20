@@ -17,7 +17,15 @@ class StandardResultsSetPagination(PageNumberPagination):
     max_page_size = 100
 
 
-class ProductsList(generics.ListCreateAPIView):
+class ProductsList(generics.ListAPIView):
+    queryset = Products.objects.all()
+    serializer_class = ProductsViewSerializer
+    pagination_class = StandardResultsSetPagination
+
+
+class ProductsListCreate(generics.CreateAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
     serializer_class = ProductsViewSerializer
     pagination_class = StandardResultsSetPagination
@@ -62,5 +70,3 @@ class ProductsBySeller(generics.ListAPIView):
         seller_id = self.kwargs['seller_id']
         queryset = Products.objects.filter(seller_id=seller_id)
         return queryset
-
-
