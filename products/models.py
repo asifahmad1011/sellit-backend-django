@@ -22,7 +22,7 @@ class Products(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
 
-    search_fields = ['name']
+    # search_fields = ['name']
     # images = models.ManyToManyField(Images)
 
     def __str__(self):
