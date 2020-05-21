@@ -79,7 +79,7 @@ class ProductsByName(generics.ListAPIView):
     queryset = Products.objects.all()
     serializer_class = ProductsViewSerializer
     filter_backends = [filters.SearchFilter]
-    search_fields = ['name']
+    search_fields = ['name', 'description']
 
     # lookup_url_kwarg = "seller_id"
     #
