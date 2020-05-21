@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'sellit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'database-1',
-        'USER': 'postgres',
+        'NAME': 'gdsd',
+        'USER': 'adminasif',
         'PASSWORD': 'asifahmad',
-        'HOST': '172.31.45.90',
+        'HOST': '212.218.89.4',
         'PORT': '5432',
     }
 }
