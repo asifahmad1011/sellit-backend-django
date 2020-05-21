@@ -10,3 +10,6 @@ class Category(models.Model):
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
     images = models.CharField(max_length=255, blank=True, null=True)
+
+    def __str__(self):
+        return self.name

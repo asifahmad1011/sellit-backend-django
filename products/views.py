@@ -27,7 +27,7 @@ class ProductsListCreate(generics.CreateAPIView):
     authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
-    serializer_class = ProductsViewSerializer
+    serializer_class = ProductsSerializer
     pagination_class = StandardResultsSetPagination
 
     def post(self, request, *args, **kwargs):
