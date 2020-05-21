@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'gdsd',
         'USER': 'adminasif',
         'PASSWORD': 'asifahmad',
-        'HOST': '212.218.89.4',
+        'HOST': 'asif.ckgmv9nf8vtp.eu-central-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
