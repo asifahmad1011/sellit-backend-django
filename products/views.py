@@ -1,10 +1,11 @@
 import itertools
 
 from django.shortcuts import render
-from rest_framework import generics, status
+from rest_framework import generics, status, filters
 from products.models import Products
 from products.serializers import ProductsSerializer, ProductsViewSerializer
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.filters import SearchFilter
 from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -59,8 +60,8 @@ class ProductsDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ProductsBySeller(generics.ListAPIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
     serializer_class = ProductsViewSerializer
 
     # lookup_url_kwarg = "seller_id"
@@ -70,3 +71,29 @@ class ProductsBySeller(generics.ListAPIView):
         seller_id = self.kwargs['seller_id']
         queryset = Products.objects.filter(seller_id=seller_id)
         return queryset
+
+
+class ProductsByName(generics.ListAPIView):
+    # authentication_classes = [SessionAuthentication, BasicAuthentication]
+    # permission_classes = [IsAuthenticated]
+    queryset = Products.objects.all()
+    serializer_class = ProductsViewSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['name']
+
+    # lookup_url_kwarg = "seller_id"
+    #
+    # def get_queryset(self):
+    #     # seller_id = self.kwargs.get(self.lookup_url_kwarg)
+    #     name = self.kwargs['name']
+    #     queryset = Products.objects.filter(name=name)
+    #     return queryset
+
+    # def get_queryset(self, *arg, **kwargs):
+    #     queryset_list = Products.objects.all()
+    #     query = self.request.GET.get("q")
+    #     if query:
+    #         queryset_list = queryset_list.filter(
+    #             Q(name__icontains=query)
+    #         ).distinct()
+    #     return queryset_list
