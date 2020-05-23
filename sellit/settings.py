@@ -24,7 +24,7 @@ SECRET_KEY = '*%tbq^=ov)@7ug^y4hzbax4(z)z4*@u(-)h4bp8uikf8to2v5-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.125.181.152']
+ALLOWED_HOSTS = ['3.125.181.152', '127.0.0.1']
 
 # Application definition
 
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'category.apps.CategoryConfig',
     'brands.apps.BrandsConfig',
     'users.apps.UsersConfig',
+    'chat.apps.ChatConfig',
     'studentarchives.apps.StudentarchivesConfig',
     'images.apps.ImagesConfig',
     'rest_framework.authtoken',
@@ -81,10 +82,10 @@ WSGI_APPLICATION = 'sellit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'gdsd',
-        'USER': 'adminasif',
-        'PASSWORD': 'asifahmad',
-        'HOST': 'asif.ckgmv9nf8vtp.eu-central-1.rds.amazonaws.com',
+        'NAME': 'sellitdb',
+        'USER': 'postgres',
+        'PASSWORD': 'Bravo3344.',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
