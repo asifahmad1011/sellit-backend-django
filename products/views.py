@@ -19,17 +19,17 @@ class StandardResultsSetPagination(PageNumberPagination):
 
 
 class ProductsList(generics.ListAPIView):
+    permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
     serializer_class = ProductsViewSerializer
     pagination_class = StandardResultsSetPagination
 
 
 class ProductsListCreate(generics.CreateAPIView):
-    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    #authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
-    pagination_class = StandardResultsSetPagination
 
     def post(self, request, *args, **kwargs):
         image_data = request.data["images"]

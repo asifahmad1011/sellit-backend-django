@@ -5,8 +5,7 @@ from category.models import Category
 
 
 class Brands(models.Model):
-    # category = models.ForeignKey('Category', models.DO_NOTHING, blank=True, null=True)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     brand_name = models.CharField(max_length=20)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)

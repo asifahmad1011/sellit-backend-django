@@ -10,12 +10,11 @@ from users.serializers import UserSerializer
 
 
 class ProductsSerializer(serializers.ModelSerializer):
-    images = ImageSerializer(many=True)
 
     class Meta:
         model = Products
         fields = ['name', 'description', 'price', 'seller', 'more_details', 'status',
-                  'category', 'brand', 'product_condition', 'created_date', 'modified_date', 'images']
+                  'category', 'brand', 'product_condition', 'created_date', 'modified_date']
 
 
 class ProductsViewSerializer(serializers.ModelSerializer):
