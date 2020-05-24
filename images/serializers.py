@@ -6,5 +6,4 @@ class ImageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Images
-        fields = ['image_id', 'image', 'url', 'product', 'video',
-                  'created_date', 'modified_date']
+        fields = '__all__'
