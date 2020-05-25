@@ -2,6 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 from category.models import Category
 from category.serializers import CategorySerializer
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import BasicAuthentication, SessionAuthentication
 
