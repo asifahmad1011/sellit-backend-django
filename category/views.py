@@ -11,12 +11,14 @@ class CategoryList(generics.ListAPIView):
 
 
 class CategoryCreate(generics.CreateAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 
 class CategoryDetail(generics.RetrieveUpdateDestroyAPIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
