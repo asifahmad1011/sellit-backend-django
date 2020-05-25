@@ -86,10 +86,10 @@ WSGI_APPLICATION = 'sellit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'sellitdemo',
-        'USER': 'postgres',
-        'PASSWORD': 'Bravo3344.',
-        'HOST': 'localhost',
+        'NAME': 'gdsd',
+        'USER': 'adminasif',
+        'PASSWORD': 'asifahmad',
+        'HOST': 'asif.ckgmv9nf8vtp.eu-central-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
