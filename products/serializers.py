@@ -21,15 +21,15 @@ class ProductsViewSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Products
-        fields = ['product_id', 'name', 'description', 'price', 'seller', 'more_details', 'status',
-                  'category', 'brand', 'product_condition', 'created_date', 'modified_date', 'images']
+        fields = ('product_id', 'name', 'description', 'price', 'seller', 'more_details', 'status',
+                  'category', 'brand', 'product_condition', 'created_date', 'modified_date', 'images')
 
-    def create(self, validated_data):
-        images_data = validated_data.pop('images')
-        product = Products.objects.create(**validated_data)
-        for image_data in images_data:
-            Images.objects.create(product=product, **image_data)
-        return product
+    # def create(self, validated_data):
+    #     images_data = validated_data.pop('images')
+    #     product = Products.objects.create(**validated_data)
+    #     for image_data in images_data:
+    #         Images.objects.create(product=product, **image_data)
+    #     return product
 
     def update(self, instance, validated_data):
         images_data = validated_data.pop('images')
